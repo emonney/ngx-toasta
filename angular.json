@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "ngx-toasta": {
+      "root": "projects/ngx-toasta",
+      "sourceRoot": "projects/ngx-toasta/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-toasta/tsconfig.lib.json",
+            "project": "projects/ngx-toasta/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-toasta/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-toasta/src/test.ts",
+            "tsConfig": "projects/ngx-toasta/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-toasta/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-toasta/tsconfig.lib.json",
+              "projects/ngx-toasta/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-toasta-demo"
