@@ -2,6 +2,8 @@
  * Public API Surface of ngx-toasta
  */
 
-export * from './lib/ngx-toasta.service';
-export * from './lib/ngx-toasta.component';
-export * from './lib/ngx-toasta.module';
+export * from './lib/toasta.service';
+export * from './lib/toasta.component';
+export * from './lib/toast.component';
+export * from './lib/shared';
+export * from './lib/toasta.module';

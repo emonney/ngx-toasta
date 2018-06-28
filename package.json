@@ -1,6 +1,18 @@
 {
   "name": "ngx-toasta-demo",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Angular Toast library shows growl-style notifications and messages for your web app",
+  "license": "MIT",
+  "author": {
+    "name": "Ebenezer Monney",
+    "url": "https://ebenmonney.com"
+  },
+  "homepage": "https://github.com/emonney/ngx-toasta",
+  "bugs": "https://github.com/emonney/ngx-toasta/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emonney/ngx-toasta.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

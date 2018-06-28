@@ -1,8 +1,48 @@
 {
   "name": "ngx-toasta",
+  "description": "Angular Toast component shows growl-style notifications and messages for your web app",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Ebenezer Monney",
+    "url": "https://ebenmonney.com"
+  },
+  "homepage": "https://github.com/emonney/ngx-toasta",
+  "bugs": "https://github.com/emonney/ngx-toasta/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emonney/ngx-toasta.git"
+  },
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  }
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "rxjs": "^6.0.0"
+  },
+  "main": "bundles/ngx-toasta.umd.js",
+  "module": "fesm5/ngx-toasta.js",
+  "es2015": "fesm2015/ngx-toasta.js",
+  "esm5": "esm5/ngx-toasta.js",
+  "esm2015": "esm2015/ngx-toasta.js",
+  "fesm5": "fesm5/ngx-toasta.js",
+  "fesm2015": "fesm2015/ngx-toasta.js",
+  "typings": "ngx-toasta.d.ts",
+  "metadata": "ngx-toasta.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "keywords": [
+    "ng2",
+    "ngx",
+    "ngx-toasta",
+    "angular",
+    "angular2",
+    "angularX",
+    "typescript",
+    "alert",
+    "toast",
+    "toasta",
+    "notifications",
+    "growl"
+  ]
 }

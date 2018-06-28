@@ -1,0 +1,61 @@
+<div class="container">
+  <br />
+  <form>
+    <div class="row">
+      <div class="four columns">
+        <label for="title">Title <small class="form-hint">(Supports HTML)</small></label>
+        <input class="u-full-width" type="text" id="title" [(ngModel)]="options.title" name="title">
+
+        <label for="msg">Message <small class="form-hint">(Supports HTML)</small></label>
+        <input class="u-full-width" type="text" id="msg" [(ngModel)]="options.msg" name="msg">
+
+        <label for="theme">Theme</label>
+        <select class="u-full-width" [(ngModel)]="options.theme" name="theme">
+          <option *ngFor="let theme of themes" [value]="theme.code">{{theme.name}}</option>
+        </select>
+
+        <label for="theme">Type</label>
+        <select class="u-full-width" [(ngModel)]="options.type" name="type">
+          <option *ngFor="let type of types" [value]="type.code">{{type.name}}</option>
+        </select>
+
+        <label for="theme">Position</label>
+        <select class="u-full-width" [ngModel]="position" (ngModelChange)="changePosition($event)" name="position">
+          <option *ngFor="let pos of positions" [value]="pos.code">{{pos.name}}</option>
+        </select>
+
+        <label for="timeout">Timeout</label>
+        <input type="text" class="u-full-width time form-element-with-hint" id="timeout" [(ngModel)]="options.timeout" placeholder="5000" name="timeout" />
+        <small class="form-hint">0 never expires</small>
+      </div>
+      <div class="four columns">
+        <label for="showclose">Show Close Icon</label>
+        <input type="checkbox" id="showclose" [(ngModel)]="options.showClose" name="showClose" />
+      </div>
+      <div class="four columns">
+        <pre>
+<code>toastaService<span ng-if="options.type != 'default'">.{{ options.type }}</span>({{ '{' }}
+    title: "{{ options.title }}",
+    msg: "{{ options.msg }}",
+    showClose: {{ options.showClose }},
+    timeout: {{ options.timeout || false }},
+    theme: "{{ options.theme }}"
+{{ '}' }});
+</code>
+<code>toastyConfig({{ '{' }}
+    position: "{{ position }}"
+{{ '}' }});
+</code>
+                </pre>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px">
+      <button style="margin-right: 5px;" class="button-primary" (click)="newToast()">Add Toast</button>
+      <button style="margin-right: 10px;" class="button-primary" (click)="newCountdownToast()">Countdown</button>
+      <button style="margin-right: 5px;" (click)="clearLastToast()">Clear Last</button>
+      <button style="margin-right: 5px;" (click)="clearToasties()">Clear All</button>
+    </div>
+    <div class="u-cf"></div>
+  </form>
+</div>
