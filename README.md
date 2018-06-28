@@ -14,7 +14,7 @@ npm install ngx-toasta
 
 ## Demo
 
-Online demo available [here](http://emonney.github.io/ngx-webpack-demo)
+Online demo available [here](https://emonney.github.io/ngx-toasta)
 
 ## Usage
 If you use SystemJS to load your files, you might have to update your config:
@@ -281,7 +281,7 @@ Use these options to configure individual or global toasts
 
 Options specific to an individual toast:
 
-```json
+```js
 ToastOptions
 {
     "title": string,     //A string or html for the title
@@ -298,7 +298,7 @@ ToastOptions
 
 Configurations that affects all toasts:
 
-```json
+```js
 ToastaConfig
 {
     "limit": 5,                 //Maximum toasts that can be shown at once. Older toasts will be removed. 0 is unlimited
