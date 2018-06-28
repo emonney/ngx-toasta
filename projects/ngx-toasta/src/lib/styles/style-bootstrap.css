@@ -1,9 +1,5 @@
-/*!
- * Copyright (C) 2016 Sergey Akopkokhyants
- * This project is licensed under the terms of the MIT license.
- * https://github.com/akserg/ng2-toasta
- *
- * Include BOOTSTRAP theme
+/*
+ * BOOTSTRAP theme
  */
 #toasta {
   position: fixed;

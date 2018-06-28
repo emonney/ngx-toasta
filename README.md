@@ -1,5 +1,6 @@
 # ngx-toasta [![npm version](https://badge.fury.io/js/ngx-toasta.svg)](https://badge.fury.io/js/ngx-toasta) [![npm monthly downloads](https://img.shields.io/npm/dm/ngx-toasta.svg?style=flat-square)](https://www.npmjs.com/package/ngx-toasta)
-AngularX Toasta component shows growl-style alerts and messages for your application.
+An angularX toasta component that shows growl-style alerts and messages for your application.
+This is a port of [ng2-toasty](https://github.com/akserg/ng2-toasty) in order to get it to work with the latest versions of [angular](https://angular.io/) and [rxjs](https://github.com/ReactiveX/rxjs) with some enhancements.
 
 Follow me 
 [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/kommand)
@@ -283,13 +284,13 @@ Options specific to an individual toast:
 ```json
 ToastOptions
 {
-    "title": string         //A string or html for the title
-    "msg": string           //A string or html for the message
-    "showClose": true,      //Whether to show a close button
-    "theme": "default",     //The theme to apply to this toast
-    "timeout": 5000,        //Time to live until toast is removed. 0 is unlimited
-    "onAdd": Function       //Function that gets called after this toast is added
-    "onRemove": Function    //Function that gets called after this toast is removed
+    "title": string,     //A string or html for the title
+    "msg": string,       //A string or html for the message
+    "showClose": true,   //Whether to show a close button
+    "theme": "default",  //The theme to apply to this toast
+    "timeout": 5000,     //Time to live until toast is removed. 0 is unlimited
+    "onAdd": Function,   //Function that gets called after this toast is added
+    "onRemove": Function //Function that gets called after this toast is removed
 }
 ```
 

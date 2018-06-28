@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 
-  private position: string = this.positions[5].code;
+  position: string = this.positions[5].code;
   private insertedToasts: number[] = [];
   private subscription: Subscription;
 

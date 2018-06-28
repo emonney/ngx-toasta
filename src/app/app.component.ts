@@ -7,7 +7,7 @@ import { ToastPositionService } from './toast-position.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  private toastaPosition: string;
+  toastaPosition: string;
 
   constructor(private toastCommunicationService: ToastPositionService) {
     this.toastCommunicationService.position$.subscribe(pos => this.toastaPosition = pos);
