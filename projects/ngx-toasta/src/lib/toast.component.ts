@@ -30,7 +30,7 @@ export class ToastComponent implements AfterViewInit {
   @Output('closeToast') closeToastEvent = new EventEmitter();
 
   ngAfterViewInit() {
-    if (this.toast.showDuration) {
+    if (this.toast.showDuration && this.toast.timeout > 0) {
       this.progressInterval = window.setInterval(() => {
         this.progressPercent = (performance.now() - this.startTime) / this.toast.timeout * 100;
 
