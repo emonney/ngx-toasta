@@ -13,6 +13,7 @@ export class ToastOptions {
   title: string;
   msg?: string;
   showClose?: boolean;
+  showDuration?: boolean;
   theme?: string;
   timeout?: number;
   onAdd?: Function;
@@ -28,6 +29,7 @@ export class ToastData {
   title: string;
   msg: string;
   showClose: boolean;
+  showDuration: boolean;
   type: string;
   theme: string;
   timeout: number;
@@ -47,6 +49,9 @@ export class ToastaConfig {
 
   // Whether to show the 'X' icon to close the toast
   showClose: boolean = true;
+
+  // Whether to show a progress bar at the bottom of the notification
+  showDuration: boolean = true;
 
   // The window position where the toast pops up
   position: 'bottom-right' | 'bottom-left' | 'bottom-center' | 'bottom-fullwidth' | 'top-right' | 'top-left' | 'top-center' | 'top-fullwidth' | 'center-center' = 'bottom-right';
@@ -174,6 +179,9 @@ export class ToastaService {
     // Set the local vs global config items
     let showClose = this._checkConfigItem(this.config, toastaOptions, 'showClose');
 
+    // Set the local vs global config items
+    let showDuration = this._checkConfigItem(this.config, toastaOptions, 'showDuration');
+
     // If we have a theme set, make sure it's a valid one
     let theme: string;
     if (toastaOptions.theme) {
@@ -187,6 +195,7 @@ export class ToastaService {
       title: toastaOptions.title,
       msg: toastaOptions.msg,
       showClose: showClose,
+      showDuration: showDuration,
       type: 'toasta-type-' + type,
       theme: 'toasta-theme-' + theme,
       onAdd: toastaOptions.onAdd && isFunction(toastaOptions.onAdd) ? toastaOptions.onAdd : null,
