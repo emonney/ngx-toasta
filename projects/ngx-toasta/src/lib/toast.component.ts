@@ -6,6 +6,7 @@ import { ToastData } from './toasta.service';
  * A Toast component shows message with title and close button.
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'ngx-toast',
   template: `
         <div class="toast" [ngClass]="[toast.type, toast.theme]">
@@ -20,6 +21,7 @@ import { ToastData } from './toasta.service';
 export class ToastComponent {
 
   @Input() toast: ToastData;
+  // tslint:disable-next-line:no-output-rename
   @Output('closeToast') closeToastEvent = new EventEmitter();
 
   /**
