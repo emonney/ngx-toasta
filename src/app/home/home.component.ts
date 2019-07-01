@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     title: 'Toast It!',
     msg: 'Mmmm, tasties...',
     showClose: true,
+    showDuration: false,
     timeout: 5000,
     theme: this.themes[0].code,
     type: this.types[0].code
@@ -122,6 +123,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: this.options.title,
       msg: this.options.msg,
       showClose: this.options.showClose,
+      showDuration: this.options.showDuration,
       timeout: this.options.timeout,
       theme: this.options.theme,
       // position: this.options.position,
@@ -152,6 +154,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: this.getTitle(seconds || 0),
       msg: this.getMessage(seconds || 0),
       showClose: this.options.showClose,
+      showDuration: this.options.showDuration,
       timeout: this.options.timeout,
       theme: this.options.theme,
       onAdd: (toast: ToastData) => {

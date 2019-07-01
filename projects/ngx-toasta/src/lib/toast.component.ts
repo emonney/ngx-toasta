@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { ToastData } from './toasta.service';
 
@@ -15,12 +15,31 @@ import { ToastData } from './toasta.service';
                 <br *ngIf="toast.title && toast.msg" />
                 <span *ngIf="toast.msg" class="toast-msg" [innerHtml]="toast.msg | safeHtml"></span>
             </div>
+            <div class="durationbackground" *ngIf="toast.showDuration && toast.timeout > 0">
+                <div class="durationbar" [style.width.%]="progressPercent">
+                </div>
+            </div>
         </div>`
 })
-export class ToastComponent {
+export class ToastComponent implements AfterViewInit {
 
+  progressInterval: number;
+  progressPercent: number = 0;
+  startTime: number = performance.now();
   @Input() toast: ToastData;
   @Output('closeToast') closeToastEvent = new EventEmitter();
+
+  ngAfterViewInit() {
+    if (this.toast.showDuration && this.toast.timeout > 0) {
+      this.progressInterval = window.setInterval(() => {
+        this.progressPercent = (performance.now() - this.startTime) / this.toast.timeout * 100;
+
+        if (this.progressPercent >= 100) {
+          clearInterval(this.progressInterval);
+        }
+      }, 16.7); // 60 fps
+    }
+  }
 
   /**
    * Event handler invokes when user clicks on close button.
@@ -29,5 +48,9 @@ export class ToastComponent {
   close($event: any) {
     $event.preventDefault();
     this.closeToastEvent.next(this.toast);
+
+    if (this.progressInterval) {
+      clearInterval(this.progressInterval);
+    }
   }
 }
