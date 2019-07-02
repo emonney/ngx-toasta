@@ -492,9 +492,9 @@
       }
 
     #toasta .toast .durationbackground {
-      background-color: #cfcfcf;
+      /*background-color: #cfcfcf;*/
       bottom: 0px;
-      height: 10px;
+      height: 4px;
       left: 0px;
       position: absolute;
       width: 100%;
@@ -502,6 +502,6 @@
 
     #toasta .toast .durationbackground .durationbar {
       background-color: #9e9e9e;
-      height: 10px;
+      height: 4px;
       width: 0%;
     }

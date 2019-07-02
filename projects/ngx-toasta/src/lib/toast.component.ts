@@ -32,9 +32,9 @@ export class ToastComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.toast.showDuration && this.toast.timeout > 0) {
       this.progressInterval = window.setInterval(() => {
-        this.progressPercent = (performance.now() - this.startTime) / this.toast.timeout * 100;
+        this.progressPercent = (100 - ((performance.now() - this.startTime) / this.toast.timeout * 100)); //Descending progress
 
-        if (this.progressPercent >= 100) {
+        if (this.progressPercent <= 0) {
           clearInterval(this.progressInterval);
         }
       }, 16.7); // 60 fps
