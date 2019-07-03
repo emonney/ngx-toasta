@@ -16,7 +16,7 @@
   "peerDependencies": {
     "@angular/common": ">=6.0.0 <9.0.0",
     "@angular/core": ">=6.0.0 <9.0.0",
-    "rxjs": "^6.1.0"
+    "rxjs": "^6.0.0"
   },
   "main": "bundles/ngx-toasta.umd.js",
   "module": "fesm5/ngx-toasta.js",
