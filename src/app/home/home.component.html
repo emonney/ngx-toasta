@@ -31,24 +31,27 @@
       <div class="four columns">
         <label for="showclose">Show Close Icon</label>
         <input type="checkbox" id="showclose" [(ngModel)]="options.showClose" name="showClose" />
-        <label for="showclose">Show Remaining Duration</label>
+        <label for="showduration">Show Remaining Duration</label>
         <input type="checkbox" id="showduration" [(ngModel)]="options.showDuration" name="showDuration" />
       </div>
       <div class="four columns">
         <pre>
-<code>toastaService<span ng-if="options.type != 'default'">.{{ options.type }}</span>({{ '{' }}
-    title: "{{ options.title }}",
-    msg: "{{ options.msg }}",
-    showClose: {{ options.showClose }},
-    timeout: {{ options.timeout || false }},
-    theme: "{{ options.theme }}"
-{{ '}' }});
-</code>
-<code>toastyConfig({{ '{' }}
-    position: "{{ position }}"
-{{ '}' }});
-</code>
-                </pre>
+        <code>
+          toastaService<span ng-if="options.type != 'default'">.{{ options.type }}</span>({{ '{' }}
+            title: "{{ options.title }}",
+            msg: "{{ options.msg }}",
+            showClose: {{ options.showClose }},
+            showDuration: {{ options.showDuration }},
+            timeout: {{ options.timeout || false }},
+            theme: "{{ options.theme }}"
+        {{ '}' }});
+        </code>
+        <code>
+        toastyConfig({{ '{' }}
+            position: "{{ position }}"
+        {{ '}' }});
+        </code>
+        </pre>
       </div>
     </div>
 

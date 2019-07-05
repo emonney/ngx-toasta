@@ -1,5 +1,5 @@
 # ngx-toasta [![npm version](https://badge.fury.io/js/ngx-toasta.svg)](https://badge.fury.io/js/ngx-toasta) [![npm monthly downloads](https://img.shields.io/npm/dm/ngx-toasta.svg?style=flat-square)](https://www.npmjs.com/package/ngx-toasta)
-An angularX toasta component that shows growl-style alerts and messages for your application.
+An angularX toast component that shows growl-style alerts and messages for your application.
 This is a port of [ng2-toasty](https://github.com/akserg/ng2-toasty) in order to get it to work with the latest versions of [angular](https://angular.io/) and [rxjs](https://github.com/ReactiveX/rxjs) with some enhancements.
 
 Follow me 
