@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -16,13 +16,13 @@ export let providers = [
   imports: [CommonModule],
   declarations: [ToastComponent, ToastaComponent, SafeHtmlPipe],
   exports: [ToastComponent, ToastaComponent],
-  providers: providers
+  providers
 })
 export class ToastaModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ToastaModule,
-      providers: providers
+      providers
     };
   }
 }

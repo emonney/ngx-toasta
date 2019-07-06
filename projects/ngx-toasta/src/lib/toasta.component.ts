@@ -19,7 +19,7 @@ export class ToastaComponent implements OnInit {
    */
   static POSITIONS: Array<String> = ['bottom-right', 'bottom-left', 'bottom-center', 'bottom-fullwidth', 'top-right', 'top-left', 'top-center', 'top-fullwidth', 'center-center'];
 
-  private _position: string = '';
+  private _position = '';
   // The window position where the toast pops up. Possible values:
   // - bottom-right (default value from ToastConfig)
   // - bottom-left
@@ -72,11 +72,11 @@ export class ToastaComponent implements OnInit {
     this.toastaService.events.subscribe((event: ToastaEvent) => {
       if (event.type === ToastaEventType.ADD) {
         // Add the new one
-        let toast: ToastData = event.value;
+        const toast: ToastData = event.value;
         this.add(toast);
       } else if (event.type === ToastaEventType.CLEAR) {
         // Clear the one by number
-        let id: number = event.value;
+        const id: number = event.value;
         this.clear(id);
       } else if (event.type === ToastaEventType.CLEAR_ALL) {
         // Lets clear all toasts

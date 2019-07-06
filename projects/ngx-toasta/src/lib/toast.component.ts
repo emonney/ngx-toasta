@@ -24,7 +24,7 @@ import { ToastData } from './toasta.service';
 export class ToastComponent implements AfterViewInit {
 
   progressInterval: number;
-  progressPercent: number = 0;
+  progressPercent = 0;
   startTime: number = performance.now();
   @Input() toast: ToastData;
   @Output('closeToast') closeToastEvent = new EventEmitter();
@@ -32,7 +32,7 @@ export class ToastComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.toast.showDuration && this.toast.timeout > 0) {
       this.progressInterval = window.setInterval(() => {
-        this.progressPercent = (100 - ((performance.now() - this.startTime) / this.toast.timeout * 100)); //Descending progress
+        this.progressPercent = (100 - ((performance.now() - this.startTime) / this.toast.timeout * 100)); // Descending progress
 
         if (this.progressPercent <= 0) {
           clearInterval(this.progressInterval);

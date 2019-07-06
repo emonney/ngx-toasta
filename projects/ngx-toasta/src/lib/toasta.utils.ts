@@ -5,7 +5,7 @@
  * @return result of analysis
  */
 export function isString(obj: any): boolean {
-  return typeof obj === "string";
+  return typeof obj === 'string';
 }
 
 /**
@@ -14,7 +14,7 @@ export function isString(obj: any): boolean {
  * @return result of analysis
  */
 export function isNumber(obj: any): boolean {
-  return typeof obj === "number";
+  return typeof obj === 'number';
 }
 
 /**
@@ -23,5 +23,5 @@ export function isNumber(obj: any): boolean {
  * @return result of analysis
  */
 export function isFunction(obj: any): boolean {
-  return typeof obj === "function";
+  return typeof obj === 'function';
 }

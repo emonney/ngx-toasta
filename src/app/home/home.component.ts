@@ -12,6 +12,10 @@ import { ToastPositionService } from '../toast-position.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  constructor(private toastaService: ToastaService, private toastPositionService: ToastPositionService) {
+
+  }
+
   themes = [{
     name: 'Default Theme',
     code: 'default'
@@ -84,6 +88,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     type: this.types[0].code
   };
 
+
+  position: string = this.positions[5].code;
+  private insertedToasts: number[] = [];
+  private subscription: Subscription;
+
   getTitle(num: number): string {
     return 'Countdown: ' + num;
   }
@@ -93,19 +102,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 
-  position: string = this.positions[5].code;
-  private insertedToasts: number[] = [];
-  private subscription: Subscription;
-
-  constructor(private toastaService: ToastaService, private toastPositionService: ToastPositionService) {
-
-  }
-
-
   ngOnInit() {
     this.toastaService.events.subscribe((event: ToastaEvent) => {
       if (event.type === ToastaEventType.ADD) {
-        let toast: ToastData = event.value;
+        const toast: ToastData = event.value;
         this.insertedToasts.push(toast.id);
       } else if (event.type === ToastaEventType.CLEAR_ALL) {
         this.insertedToasts = [];
@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   newToast() {
-    let toastOptions: ToastOptions = {
+    const toastOptions: ToastOptions = {
       title: this.options.title,
       msg: this.options.msg,
       showClose: this.options.showClose,
@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       onAdd: (toast: ToastData) => {
         console.log('Toast ' + toast.id + ' has been added!');
       },
-      onRemove: function (toast: ToastData) {
+      onRemove(toast: ToastData) {
         console.log('Toast ' + toast.id + ' has been removed!');
       }
     };
@@ -146,11 +146,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   newCountdownToast() {
-    let interval_ = 1000;
-    let seconds = this.options.timeout / 1000;
+    const interval_ = 1000;
+    const seconds = this.options.timeout / 1000;
     let subscription: Subscription;
 
-    let toastOptions: ToastOptions = {
+    const toastOptions: ToastOptions = {
       title: this.getTitle(seconds || 0),
       msg: this.getMessage(seconds || 0),
       showClose: this.options.showClose,
@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       onAdd: (toast: ToastData) => {
         console.log('Toast ' + toast.id + ' has been added!');
         // Run the timer with 1 second iterval
-        let observable = interval(interval_).pipe(take(seconds));
+        const observable = interval(interval_).pipe(take(seconds));
         // Start listen seconds bit
         subscription = observable.subscribe((count: number) => {
           // Update title
@@ -170,7 +170,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
 
       },
-      onRemove: function (toast: ToastData) {
+      onRemove(toast: ToastData) {
         console.log('Toast ' + toast.id + ' has been removed!');
         // Stop listenning
         subscription.unsubscribe();

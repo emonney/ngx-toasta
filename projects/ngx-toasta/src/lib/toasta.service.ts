@@ -45,19 +45,19 @@ export class ToastData {
 export class ToastaConfig {
 
   // Maximum number of toasties to show at once
-  limit: number = 5;
+  limit = 5;
 
   // Whether to show the 'X' icon to close the toast
-  showClose: boolean = true;
+  showClose = true;
 
   // Whether to show a progress bar at the bottom of the notification
-  showDuration: boolean = true;
+  showDuration = true;
 
   // The window position where the toast pops up
   position: 'bottom-right' | 'bottom-left' | 'bottom-center' | 'bottom-fullwidth' | 'top-right' | 'top-left' | 'top-center' | 'top-fullwidth' | 'center-center' = 'bottom-right';
 
   // How long (in miliseconds) the toasta shows before it's removed. Set to null/0 to turn off.
-  timeout: number = 5000;
+  timeout = 5000;
 
   // What theme to use
   theme: 'default' | 'material' | 'bootstrap' = 'default';
@@ -85,7 +85,7 @@ export class ToastaService {
   // Allowed THEMES
   static THEMES: Array<string> = ['default', 'material', 'bootstrap'];
   // Init the counter
-  uniqueCounter: number = 0;
+  uniqueCounter = 0;
   // ToastData event emitter
   // private toastsEmitter: EventEmitter<ToastData> = new EventEmitter<ToastData>();
   // Clear event emitter
@@ -160,11 +160,11 @@ export class ToastaService {
     let toastaOptions: ToastOptions;
 
     if (isString(options) && options !== '' || isNumber(options)) {
-      toastaOptions = <ToastOptions>{
+      toastaOptions = {
         title: options.toString()
-      };
+      } as ToastOptions;
     } else {
-      toastaOptions = <ToastOptions>options;
+      toastaOptions = options as ToastOptions;
     }
 
     if (!toastaOptions || !toastaOptions.title && !toastaOptions.msg) {
@@ -177,10 +177,10 @@ export class ToastaService {
     this.uniqueCounter++;
 
     // Set the local vs global config items
-    let showClose = this._checkConfigItem(this.config, toastaOptions, 'showClose');
+    const showClose = this._checkConfigItem(this.config, toastaOptions, 'showClose');
 
     // Set the local vs global config items
-    let showDuration = this._checkConfigItem(this.config, toastaOptions, 'showDuration');
+    const showDuration = this._checkConfigItem(this.config, toastaOptions, 'showDuration');
 
     // If we have a theme set, make sure it's a valid one
     let theme: string;
@@ -190,17 +190,17 @@ export class ToastaService {
       theme = this.config.theme;
     }
 
-    let toast: ToastData = <ToastData>{
+    const toast: ToastData = {
       id: this.uniqueCounter,
       title: toastaOptions.title,
       msg: toastaOptions.msg,
-      showClose: showClose,
-      showDuration: showDuration,
+      showClose,
+      showDuration,
       type: 'toasta-type-' + type,
       theme: 'toasta-theme-' + theme,
       onAdd: toastaOptions.onAdd && isFunction(toastaOptions.onAdd) ? toastaOptions.onAdd : null,
       onRemove: toastaOptions.onRemove && isFunction(toastaOptions.onRemove) ? toastaOptions.onRemove : null
-    };
+    } as ToastData;
 
     // If there's a timeout individually or globally, set the toast to timeout
     // Allows a caller to pass null/0 and override the default. Can also set the default to null/0 to turn off.
