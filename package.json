@@ -18,6 +18,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build ngx-toasta --prod && ng build --prod",
+    "gh-pages": "ng build --prod --output-path docs --base-href /ngx-toasta/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
