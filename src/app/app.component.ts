@@ -7,6 +7,7 @@ import { ToastPositionService } from './toast-position.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  title = 'ngx-toasta Demo';
   toastaPosition: string;
 
   constructor(private toastCommunicationService: ToastPositionService) {
