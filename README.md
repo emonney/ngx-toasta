@@ -284,13 +284,14 @@ Options specific to an individual toast:
 ```js
 ToastOptions
 {
-    "title": string,     //A string or html for the title
-    "msg": string,       //A string or html for the message
-    "showClose": true,   //Whether to show a close button
-    "theme": "default",  //The theme to apply to this toast
-    "timeout": 5000,     //Time to live until toast is removed. 0 is unlimited
-    "onAdd": Function,   //Function that gets called after this toast is added
-    "onRemove": Function //Function that gets called after this toast is removed
+    "title": string,      //A string or html for the title
+    "msg": string,        //A string or html for the message
+    "showClose": true,    //Whether to show a close button
+    "showDuration": true, //Whether to show a progress bar
+    "theme": "default",   //The theme to apply to this toast
+    "timeout": 5000,      //Time to live until toast is removed. 0 is unlimited
+    "onAdd": Function,    //Function that gets called after this toast is added
+    "onRemove": Function  //Function that gets called after this toast is removed
 }
 ```
 
@@ -303,6 +304,7 @@ ToastaConfig
 {
     "limit": 5,                 //Maximum toasts that can be shown at once. Older toasts will be removed. 0 is unlimited
     "showClose": true,          //Whether to show the 'x' icon to close the toast
+    "showDuration": true,       //Whether to show a progress bar at the bottom of the notification
     "position": "bottom-right", //The window position where the toast pops up
     "timeout": 5000,            //Time to live in milliseconds. 0 is unlimited
     "theme": "default"          //What theme to use
