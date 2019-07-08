@@ -1,7 +1,7 @@
 {
   "name": "ngx-toasta",
   "description": "Simple and clean Angular Toast component that shows growl-style notifications and messages for your web app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": {
     "name": "Ebenezer Monney",
@@ -28,9 +28,6 @@
   "typings": "ngx-toasta.d.ts",
   "metadata": "ngx-toasta.metadata.json",
   "sideEffects": false,
-  "dependencies": {
-    "tslib": "^1.9.0"
-  },
   "keywords": [
     "ng2",
     "ngx",

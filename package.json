@@ -1,6 +1,6 @@
 {
   "name": "ngx-toasta-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple and clean Angular Toast library that shows growl-style notifications and messages for your web app",
   "license": "MIT",
   "author": {
