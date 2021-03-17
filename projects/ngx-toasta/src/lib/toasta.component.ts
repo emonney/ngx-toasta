@@ -17,7 +17,7 @@ export class ToastaComponent implements OnInit {
   /**
    * Set of constants defines position of Toasta on the page.
    */
-  static POSITIONS: Array<String> = ['bottom-right', 'bottom-left', 'bottom-center', 'bottom-fullwidth', 'top-right', 'top-left', 'top-center', 'top-fullwidth', 'center-center'];
+  static POSITIONS: Array<string> = ['bottom-right', 'bottom-left', 'bottom-center', 'bottom-fullwidth', 'top-right', 'top-left', 'top-center', 'top-fullwidth', 'center-center'];
 
   private _position = '';
   // The window position where the toast pops up. Possible values:
@@ -67,7 +67,7 @@ export class ToastaComponent implements OnInit {
    * first time, and before any of its children have been checked. It is invoked only once when the
    * directive is instantiated.
    */
-  ngOnInit(): any {
+  ngOnInit(): void {
     // We listen events from our service
     this.toastaService.events.subscribe((event: ToastaEvent) => {
       if (event.type === ToastaEventType.ADD) {

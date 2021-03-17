@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject, Observable, Subscription, interval } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { ToastaService, ToastaConfig, ToastOptions, ToastData, ToastaEvent, ToastaEventType } from '../../../projects/ngx-toasta/src/public_api';
+import { ToastaService, ToastOptions, ToastData, ToastaEvent, ToastaEventType } from '../../../projects/ngx-toasta/src/public-api';
 
 import { ToastPositionService } from '../toast-position.service';
 
@@ -10,7 +10,7 @@ import { ToastPositionService } from '../toast-position.service';
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   constructor(private toastaService: ToastaService, private toastPositionService: ToastPositionService) {
 
@@ -91,7 +91,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   position: string = this.positions[5].code;
   private insertedToasts: number[] = [];
-  private subscription: Subscription;
 
   getTitle(num: number): string {
     return 'Countdown: ' + num;
@@ -111,10 +110,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.insertedToasts = [];
       }
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 

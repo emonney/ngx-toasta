@@ -1,5 +1,5 @@
-import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import { AppPage } from './app.po';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display app message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('ngx-toasta Demo');
+  it('should display app message', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('ngx-toasta Demo');
   });
 
   afterEach(async () => {

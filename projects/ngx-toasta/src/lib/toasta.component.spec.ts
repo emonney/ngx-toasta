@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToastaComponent } from './toasta.component';
 
@@ -6,12 +6,12 @@ describe('ToastaComponent', () => {
   let component: ToastaComponent;
   let fixture: ComponentFixture<ToastaComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ToastaComponent ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ToastaComponent]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ToastaComponent);
