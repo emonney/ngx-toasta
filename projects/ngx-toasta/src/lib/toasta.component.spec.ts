@@ -11,9 +11,7 @@ describe('ToastaComponent', () => {
       declarations: [ToastaComponent]
     })
       .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ToastaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
