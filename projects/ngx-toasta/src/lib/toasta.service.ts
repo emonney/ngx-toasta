@@ -204,7 +204,7 @@ export class ToastaService {
 
     // If there's a timeout individually or globally, set the toast to timeout
     // Allows a caller to pass null/0 and override the default. Can also set the default to null/0 to turn off.
-    toast.timeout = toastaOptions.hasOwnProperty('timeout') ? toastaOptions.timeout ?? 0 : this.config.timeout;
+    toast.timeout = toastaOptions.hasOwnProperty('timeout') ? toastaOptions.timeout : this.config.timeout;
 
     // Push up a new toast item
     // this.toastsSubscriber.next(toast);

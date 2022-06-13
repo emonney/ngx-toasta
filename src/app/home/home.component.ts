@@ -187,13 +187,10 @@ export class HomeComponent implements OnInit {
   }
 
   clearLastToast() {
-    let ids = this.insertedToasts.pop();
-
-    if (ids != null)
-      this.toastaService.clear(ids);
+    this.toastaService.clear(this.insertedToasts.pop());
   }
 
-  changePosition($event: string) {
+  changePosition($event) {
     this.position = $event;
     this.toastPositionService.setPosition(this.position);
   }

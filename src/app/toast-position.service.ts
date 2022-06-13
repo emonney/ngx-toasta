@@ -12,7 +12,7 @@ export class ToastPositionService {
   private positionSource = new Subject<string>();
   position$ = this.positionSource.asObservable();
 
-  setPosition(position: string) {
+  setPosition(position) {
     this.positionSource.next(position);
   }
 }
