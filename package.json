@@ -1,6 +1,6 @@
 {
   "name": "ngx-toasta-demo",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Simple and clean Angular Toast library that shows growl-style notifications and messages for your web app",
   "license": "MIT",
   "author": {
@@ -18,7 +18,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build-prod": "ng build ngx-toasta && ng build",
+    "build-lib": "ng build ngx-toasta",
     "gh-pages": "ng build --output-path docs --base-href /ngx-toasta/",
     "test": "ng test"
   },
