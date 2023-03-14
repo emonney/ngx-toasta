@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
   };
 
 
-  position: string = this.positions[5].code;
+  position: string = this.positions[6].code;
   private insertedToasts: number[] = [];
 
   getTitle(num: number): string {
