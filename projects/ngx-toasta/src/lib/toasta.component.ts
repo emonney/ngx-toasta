@@ -72,11 +72,11 @@ export class ToastaComponent implements OnInit {
     this.toastaService.events.subscribe((event: ToastaEvent) => {
       if (event.type === ToastaEventType.ADD) {
         // Add the new one
-        const toast: ToastData = event.value;
+        const toast = event.value as ToastData;
         this.add(toast);
       } else if (event.type === ToastaEventType.CLEAR) {
         // Clear the one by number
-        const id: number = event.value;
+        const id = event.value as number;
         this.clear(id);
       } else if (event.type === ToastaEventType.CLEAR_ALL) {
         // Lets clear all toasts
@@ -118,7 +118,7 @@ export class ToastaComponent implements OnInit {
    */
   clear(id: number) {
     if (id) {
-      this.toasts.forEach((value: any, key: number) => {
+      this.toasts.forEach((value, key) => {
         if (value.id === id) {
           if (value.onRemove && isFunction(value.onRemove)) {
             value.onRemove.call(this, value);
@@ -135,7 +135,7 @@ export class ToastaComponent implements OnInit {
    * Clear all toasts
    */
   clearAll() {
-    this.toasts.forEach((value: any, key: number) => {
+    this.toasts.forEach((value, key) => {
       if (value.onRemove && isFunction(value.onRemove)) {
         value.onRemove.call(this, value);
       }

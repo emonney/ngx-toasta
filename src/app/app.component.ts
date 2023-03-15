@@ -8,7 +8,7 @@ import { ToastPositionService } from './toast-position.service';
 })
 export class AppComponent {
   title = 'ngx-toasta Demo';
-  toastaPosition: string;
+  toastaPosition!: string;
 
   constructor(private toastCommunicationService: ToastPositionService) {
     this.toastCommunicationService.position$.subscribe(pos => this.toastaPosition = pos);

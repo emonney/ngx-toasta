@@ -23,10 +23,10 @@ import { ToastData } from './toasta.service';
 })
 export class ToastComponent implements AfterViewInit {
 
-  progressInterval: number;
+  progressInterval?: number;
   progressPercent = 0;
   startTime: number = performance.now();
-  @Input() toast: ToastData;
+  @Input() toast!: ToastData;
   @Output('closeToast') closeToastEvent = new EventEmitter();
 
   ngAfterViewInit() {
@@ -45,7 +45,7 @@ export class ToastComponent implements AfterViewInit {
    * Event handler invokes when user clicks on close button.
    * This method emit new event into ToastaContainer to close it.
    */
-  close($event: any) {
+  close($event: Event) {
     $event.preventDefault();
     this.closeToastEvent.next(this.toast);
 

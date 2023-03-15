@@ -10,7 +10,7 @@ import { isString, isNumber, isFunction } from './toasta.utils';
  */
 @Injectable()
 export class ToastOptions {
-  title: string;
+  title?: string;
   msg?: string;
   showClose?: boolean;
   showDuration?: boolean;
@@ -25,17 +25,17 @@ export class ToastOptions {
  */
 @Injectable()
 export class ToastData {
-  id: number;
-  title: string;
-  msg: string;
-  showClose: boolean;
-  showDuration: boolean;
-  type: string;
-  theme: string;
-  timeout: number;
-  onAdd: Function;
-  onRemove: Function;
-  onClick: Function;
+  id!: number;
+  title?: string;
+  msg?: string;
+  showClose!: boolean;
+  showDuration!: boolean;
+  type!: string;
+  theme!: string;
+  timeout!: number;
+  onAdd?: Function;
+  onRemove?: Function;
+  onClick?: Function;
 }
 
 /**
@@ -70,7 +70,7 @@ export enum ToastaEventType {
 }
 
 export class ToastaEvent {
-  constructor(public type: ToastaEventType, public value?: any) { }
+  constructor(public type: ToastaEventType, public value?: ToastData | number) { }
 }
 
 export function toastaServiceFactory(config: ToastaConfig): ToastaService {
@@ -177,10 +177,10 @@ export class ToastaService {
     this.uniqueCounter++;
 
     // Set the local vs global config items
-    const showClose = this._checkConfigItem(this.config, toastaOptions, 'showClose');
+    const showClose = this._checkConfigBooleanItem(this.config, toastaOptions, 'showClose');
 
     // Set the local vs global config items
-    const showDuration = this._checkConfigItem(this.config, toastaOptions, 'showDuration');
+    const showDuration = this._checkConfigBooleanItem(this.config, toastaOptions, 'showDuration');
 
     // If we have a theme set, make sure it's a valid one
     let theme: string;
@@ -198,13 +198,12 @@ export class ToastaService {
       showDuration,
       type: 'toasta-type-' + type,
       theme: 'toasta-theme-' + theme,
-      onAdd: toastaOptions.onAdd && isFunction(toastaOptions.onAdd) ? toastaOptions.onAdd : null,
-      onRemove: toastaOptions.onRemove && isFunction(toastaOptions.onRemove) ? toastaOptions.onRemove : null
-    } as ToastData;
-
-    // If there's a timeout individually or globally, set the toast to timeout
-    // Allows a caller to pass null/0 and override the default. Can also set the default to null/0 to turn off.
-    toast.timeout = toastaOptions.hasOwnProperty('timeout') ? toastaOptions.timeout ?? 0 : this.config.timeout;
+      // If there's a timeout individually or globally, set the toast to timeout
+      // Allows a caller to pass null/0 and override the default. Can also set the default to null/0 to turn off.
+      timeout: toastaOptions.hasOwnProperty('timeout') ? toastaOptions.timeout ?? 0 : this.config.timeout,
+      onAdd: toastaOptions.onAdd && isFunction(toastaOptions.onAdd) ? toastaOptions.onAdd : undefined,
+      onRemove: toastaOptions.onRemove && isFunction(toastaOptions.onRemove) ? toastaOptions.onRemove : undefined
+    };
 
     // Push up a new toast item
     // this.toastsSubscriber.next(toast);
@@ -230,11 +229,11 @@ export class ToastaService {
 
   // Checks whether the local option is set, if not,
   // checks the global config
-  private _checkConfigItem(config: any, options: any, property: string) {
+  private _checkConfigBooleanItem(config: any, options: any, property: string) {
     if (options[property] === false) {
       return false;
     } else if (!options[property]) {
-      return config[property];
+      return config[property] as boolean;
     } else {
       return true;
     }

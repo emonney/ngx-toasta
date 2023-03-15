@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.toastaService.events.subscribe((event: ToastaEvent) => {
       if (event.type === ToastaEventType.ADD) {
-        const toast: ToastData = event.value;
+        const toast = event.value as ToastData;
         this.insertedToasts.push(toast.id);
       } else if (event.type === ToastaEventType.CLEAR_ALL) {
         this.insertedToasts = [];
